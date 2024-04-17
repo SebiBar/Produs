@@ -17,7 +17,7 @@ namespace entitati
 
         public bool IsIndeplinit(ProdusAbstract elem)
         {
-            return elem.Pret == pretCriteriu;
+            return elem.Pret > pretCriteriu;
         }
     }
 }

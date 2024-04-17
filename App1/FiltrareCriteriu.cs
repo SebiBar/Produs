@@ -17,5 +17,16 @@ namespace entitati
 
             return elemFiltrate;
         }
+
+        public IEnumerable<ProdusAbstract> Filtrare(IEnumerable<ProdusAbstract> lista_elem,
+            params ICriteriu[] criterii)
+        {
+            IEnumerable<ProdusAbstract> elemFiltrate =
+                from elem in lista_elem
+                where criterii.All(criteriu => criteriu.IsIndeplinit(elem))
+                select elem;
+
+            return elemFiltrate;
+        }
     }
 }

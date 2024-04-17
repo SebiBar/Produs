@@ -24,12 +24,14 @@ namespace App1
             mgrPachete.SortByPrice();
             mgrPachete.Write2Console();
 
-            //Afisam elementele cu categoria "Clienti"
+            //Afisam elementele cu categoria "Clienti" si pret peste 1000
             CriteriuCategorie criteriuCategorie = new CriteriuCategorie("Clienti");
+            CriteriuPret criteriuPret = new CriteriuPret(1000);
             FiltrareCriteriu filtrare = new FiltrareCriteriu();
 
             Console.WriteLine("Filru:");
-            IEnumerable<ProdusAbstract> li = filtrare.Filtrare(mgrPachete.GetElemente(), criteriuCategorie);
+            IEnumerable<ProdusAbstract> li = filtrare.Filtrare(mgrPachete.GetElemente(),
+                criteriuCategorie, criteriuPret);
             foreach(ProdusAbstract c in li)
                 Console.WriteLine(c.ToString());
 

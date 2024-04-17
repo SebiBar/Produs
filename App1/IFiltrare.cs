@@ -8,6 +8,9 @@ namespace entitati
 {
     public interface IFiltrare
     {
-        public IEnumerable<ProdusAbstract> Filtrare(IEnumerable<ProdusAbstract> elem, ICriteriu criteriu);
+        public IEnumerable<ProdusAbstract> Filtrare(IEnumerable<ProdusAbstract> lista_elem, ICriteriu criteriu);
+
+        public IEnumerable<ProdusAbstract> Filtrare(IEnumerable<ProdusAbstract> lista_elem,
+            params ICriteriu[] criteriu);
     }
 }
