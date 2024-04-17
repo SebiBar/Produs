@@ -12,7 +12,7 @@ namespace App1
     {
         protected List<ProdusAbstract> elemente = new List<ProdusAbstract>();
 
-        public abstract void InitializareElementeXML();
+        public abstract void InitializareElementeXML(string filePath);
 
         public abstract void ReadElement();
 

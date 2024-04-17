@@ -19,10 +19,10 @@ namespace App1
             mgrProduse = new ProduseMgr();
         }
 
-        public override void InitializareElementeXML()
+        public override void InitializareElementeXML(string filePath)
         {
             XmlDocument doc = new XmlDocument();
-            try { doc.Load("C:\\Users\\Alex\\Desktop\\poo2-main\\Produs\\App1\\Produse.xml"); }
+            try { doc.Load(filePath); }
             catch { Console.WriteLine("Nu s-a gasit fisierul"); }
 
             XmlNodeList? lista_noduri = doc.SelectNodes("Produse/Pachet");

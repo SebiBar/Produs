@@ -12,12 +12,10 @@ namespace App1
         //main
         static void Main(string[] args)
         {
+            string filePath = "C:\\Users\\Alex\\Desktop\\Produs\\App1\\Produse.xml";
             PachetMgr mgrPachete = new PachetMgr();
 
-            CriteriuCategorie criteriuCategorie = new CriteriuCategorie("Clienti");
-            FiltrareCriteriu filtrare = new FiltrareCriteriu();
-
-            mgrPachete.InitializareElementeXML();
+            mgrPachete.InitializareElementeXML(filePath);
 
             Console.Write("Nr pachete: ");
             uint nrPachete = uint.Parse(Console.ReadLine() ?? string.Empty);
@@ -26,6 +24,11 @@ namespace App1
             mgrPachete.SortByPrice();
             mgrPachete.Write2Console();
 
+            //Afisam elementele cu categoria "Clienti"
+            CriteriuCategorie criteriuCategorie = new CriteriuCategorie("Clienti");
+            FiltrareCriteriu filtrare = new FiltrareCriteriu();
+
+            Console.WriteLine("Filru:");
             IEnumerable<ProdusAbstract> li = filtrare.Filtrare(mgrPachete.GetElemente(), criteriuCategorie);
             foreach(ProdusAbstract c in li)
                 Console.WriteLine(c.ToString());

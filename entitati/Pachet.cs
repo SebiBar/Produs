@@ -84,6 +84,7 @@ namespace entitati
             return false;
         }
 
+        //Pentru Sort(), le ia dupa Pret
         public int CompareTo(object? obj)
         {
             Pachet? pachet = obj as Pachet;

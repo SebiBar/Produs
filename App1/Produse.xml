@@ -60,5 +60,57 @@
       </Serviciu>
     </Elemente>
   </Pachet>
+  <Pachet>
+    <Nume>Telefon 5G + Mentenanta</Nume>
+    <CodIntern>123245</CodIntern>
+    <Categorie>Clienti</Categorie>
+    <Elemente>
+      <Produs>
+        <Nume>Telefon 5G</Nume>
+        <CodIntern>110356</CodIntern>
+        <Producator>Germania</Producator>
+        <Pret>2600</Pret>
+        <Categorie>Tehnologia Informatiei</Categorie>
+      </Produs>
+      <Serviciu>
+        <Nume>Transport Premium</Nume>
+        <CodIntern>987899</CodIntern>
+        <Pret>35</Pret>
+        <Categorie>Clienti</Categorie>
+      </Serviciu>
+      <Serviciu>
+        <Nume>Mentenanta</Nume>
+        <CodIntern>987111</CodIntern>
+        <Pret>50</Pret>
+        <Categorie>Tehnologia Informatiei</Categorie>
+      </Serviciu>
+    </Elemente>
+  </Pachet>
+  <Pachet>
+    <Nume>Subscriptie lunara + Pini</Nume>
+    <CodIntern>103230</CodIntern>
+    <Categorie>Clienti</Categorie>
+    <Elemente>
+      <Produs>
+        <Nume>5 Pini unici</Nume>
+        <CodIntern>330245</CodIntern>
+        <Producator>Suedia</Producator>
+        <Pret>5</Pret>
+        <Categorie>Clienti</Categorie>
+      </Produs>
+      <Serviciu>
+        <Nume>Transport</Nume>
+        <CodIntern>987889</CodIntern>
+        <Pret>20</Pret>
+        <Categorie>Clienti</Categorie>
+      </Serviciu>
+      <Serviciu>
+        <Nume>Subscriptie lunara</Nume>
+        <CodIntern>257111</CodIntern>
+        <Pret>30</Pret>
+        <Categorie>Clienti</Categorie>
+      </Serviciu>
+    </Elemente>
+  </Pachet>
 </Produse>
 
