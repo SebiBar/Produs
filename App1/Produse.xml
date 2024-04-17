@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Produse>
+  <Produs>
+    <Nume>Calculator</Nume>
+    <CodIntern>157235</CodIntern>
+    <Producator>SUA</Producator>
+    <Pret>2200</Pret>
+    <Categorie>Tehnologia Informatiei</Categorie>
+  </Produs>
+  <Produs>
+    <Nume>Telefon</Nume>
+    <CodIntern>213430</CodIntern>
+    <Producator>SUA</Producator>
+    <Pret>1400</Pret>
+    <Categorie>Tehnologia Informatiei</Categorie>
+  </Produs>
+  <Produs>
+    <Nume>Pix</Nume>
+    <CodIntern>111345</CodIntern>
+    <Producator>Suedia</Producator>
+    <Pret>4</Pret>
+    <Categorie>Instrumente</Categorie>
+  </Produs>
+  <Serviciu>
+    <Nume>Transport</Nume>
+    <CodIntern>987889</CodIntern>
+    <Pret>20</Pret>
+    <Categorie>Clienti</Categorie>
+  </Serviciu>
+  <Serviciu>
+    <Nume>Program VIP</Nume>
+    <CodIntern>878899</CodIntern>
+    <Pret>40</Pret>
+    <Categorie>Clienti</Categorie>
+  </Serviciu>
+  <Pachet>
+    <Nume>Calculator Personalizat + Mentenanta</Nume>
+    <CodIntern>123233</CodIntern>
+    <Categorie>Clienti</Categorie>
+    <Elemente>
+      <Produs>
+        <Nume>Calculator Personalizat</Nume>
+        <CodIntern>110345</CodIntern>
+        <Producator>SUA</Producator>
+        <Pret>4000</Pret>
+        <Categorie>Tehnologia Informatiei</Categorie>
+      </Produs>
+      <Serviciu>
+        <Nume>Transport Premium</Nume>
+        <CodIntern>987899</CodIntern>
+        <Pret>35</Pret>
+        <Categorie>Clienti</Categorie>
+      </Serviciu>
+      <Serviciu>
+        <Nume>Mentenanta</Nume>
+        <CodIntern>987111</CodIntern>
+        <Pret>50</Pret>
+        <Categorie>Tehnologia Informatiei</Categorie>
+      </Serviciu>
+    </Elemente>
+  </Pachet>
+</Produse>
+
