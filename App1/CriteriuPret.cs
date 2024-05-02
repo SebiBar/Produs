@@ -9,15 +9,29 @@ namespace entitati
     internal class CriteriuPret : ICriteriu
     {
         private int pretCriteriu;
+        private char? semnCriteriu;
 
         public CriteriuPret(int pret)
         {
             pretCriteriu = pret;
         }
 
+        public CriteriuPret(char semn, int pret)
+        {
+            pretCriteriu = pret;
+            semnCriteriu = semn;
+        }
+
         public bool IsIndeplinit(ProdusAbstract elem)
         {
-            return elem.Pret > pretCriteriu;
+            if (semnCriteriu == null)
+                return elem.Pret == pretCriteriu;
+            else if (semnCriteriu == '>')
+                return elem.Pret >= pretCriteriu;
+            else if (semnCriteriu == '<')
+                return elem.Pret <= pretCriteriu;
+            else
+                return elem.Pret == pretCriteriu;
         }
     }
 }

@@ -1,39 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 
 <Produse>
-  <Produs>
-    <Nume>Calculator</Nume>
-    <CodIntern>157235</CodIntern>
-    <Producator>SUA</Producator>
-    <Pret>2200</Pret>
-    <Categorie>Tehnologia Informatiei</Categorie>
-  </Produs>
-  <Produs>
-    <Nume>Telefon</Nume>
-    <CodIntern>213430</CodIntern>
-    <Producator>SUA</Producator>
-    <Pret>1400</Pret>
-    <Categorie>Tehnologia Informatiei</Categorie>
-  </Produs>
-  <Produs>
-    <Nume>Pix</Nume>
-    <CodIntern>111345</CodIntern>
-    <Producator>Suedia</Producator>
-    <Pret>4</Pret>
-    <Categorie>Instrumente</Categorie>
-  </Produs>
-  <Serviciu>
-    <Nume>Transport</Nume>
-    <CodIntern>987889</CodIntern>
-    <Pret>20</Pret>
-    <Categorie>Clienti</Categorie>
-  </Serviciu>
-  <Serviciu>
-    <Nume>Program VIP</Nume>
-    <CodIntern>878899</CodIntern>
-    <Pret>40</Pret>
-    <Categorie>Clienti</Categorie>
-  </Serviciu>
   <Pachet>
     <Nume>Calculator Personalizat + Mentenanta</Nume>
     <CodIntern>123233</CodIntern>
@@ -109,6 +76,26 @@
         <CodIntern>257111</CodIntern>
         <Pret>30</Pret>
         <Categorie>Clienti</Categorie>
+      </Serviciu>
+    </Elemente>
+  </Pachet>
+  <Pachet>
+    <Nume>Asigurare sanatate</Nume>
+    <CodIntern>523232</CodIntern>
+    <Categorie>Angajati</Categorie>
+    <Elemente>
+      <Produs>
+        <Nume>Cadou consultare</Nume>
+        <CodIntern>500345</CodIntern>
+        <Producator>Intern</Producator>
+        <Pret>0</Pret>
+        <Categorie>Altele</Categorie>
+      </Produs>
+      <Serviciu>
+        <Nume>Consultare medicala</Nume>
+        <CodIntern>587811</CodIntern>
+        <Pret>10</Pret>
+        <Categorie>Angajati</Categorie>
       </Serviciu>
     </Elemente>
   </Pachet>

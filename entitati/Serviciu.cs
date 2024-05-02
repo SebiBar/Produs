@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace entitati
 {
+    [XmlRoot ("ServiciuParticularizat")]
     public class Serviciu : ProdusAbstract
     {
+        public Serviciu() { }
+
         public Serviciu(int id, string? nume, string? codIntern, int? pret, string? categorie)
             : base(id, nume, codIntern, pret, categorie)
         {
@@ -34,6 +39,24 @@ namespace entitati
         public override bool canAddToPackage(Pachet pachet)
         {
             return pachet.CurrentServicii < Pachet.MaxS;
+        }
+
+        public override void save2XML (string fileName)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(Serviciu));
+            StreamWriter sw = new StreamWriter(fileName);
+            xs.Serialize(sw,this);
+            sw.Close();
+        }
+
+        public override Serviciu? loadFromXML(string fileName)
+        {
+            XmlSerializer xs = new XmlSerializer(typeof(Serviciu));
+            FileStream fs = new FileStream(fileName, FileMode.Open);
+            XmlReader reader = new XmlTextReader(fs);
+            Serviciu? serviciu = (Serviciu?)xs.Deserialize(reader);
+            fs.Close();
+            return serviciu;
         }
     }
 }

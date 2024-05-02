@@ -55,7 +55,11 @@ namespace App1
             Serviciu serv = new Serviciu(elemente.Count, numeTmp, codInternTmp, pretTmp, categorieTmp);
 
             if (!(elemente.Contains(serv)))
+            {
+                serv.save2XML("C:\\Users\\Alex\\Desktop\\Produs\\App1\\Produs.xml");
                 elemente.Add(serv);
+            }
+                
         }
 
         public override void Write2Console()

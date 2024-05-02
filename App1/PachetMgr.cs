@@ -59,7 +59,7 @@ namespace App1
                             if (!(elem_pachet.Contains(serv)))
                                 elem_pachet.Add(serv);
                         }
-                    }
+                    } //cica fac de 2 ori lista
                     Pachet pac = new Pachet(
                         elemente.Count,
                         nod["Nume"]!.InnerText,
@@ -120,7 +120,7 @@ namespace App1
                 li.Add(p);
             foreach (IPackageable p in mgrServicii.GetElemente())
                 li.Add(p);
-
+            // cica fac de 2 ori lista
             Pachet pac = new Pachet(
                 elemente.Count,
                 numeTmp,

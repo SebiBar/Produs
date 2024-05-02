@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
 using entitati;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace App1
 {
@@ -32,6 +33,7 @@ namespace App1
         {
             return elemente;
         }
+
         public IEnumerable<ProdusAbstract> GetElemente(String nume_elem)
         {
             IEnumerable<ProdusAbstract> interrog =
@@ -41,6 +43,16 @@ namespace App1
                 select elem;
 
             return interrog;
+        }
+        public IEnumerable<ProdusAbstract> GetElemente(ICriteriu criteriu)
+        {
+            FiltrareCriteriu filtru = new FiltrareCriteriu();
+            return filtru.Filtrare(elemente, criteriu);
+        }
+        public IEnumerable<ProdusAbstract> GetElemente(params ICriteriu[] criterii)
+        {
+            FiltrareCriteriu filtru = new FiltrareCriteriu();
+            return filtru.Filtrare(elemente, criterii);
         }
     }
 }
