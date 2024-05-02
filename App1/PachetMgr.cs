@@ -30,10 +30,14 @@ namespace App1
             if (lista_noduri != null)
                 foreach (XmlNode nod in lista_noduri) // Fiecare <Pachet>
                 {
-                    List<IPackageable>? elem_pachet = new List<IPackageable>();
+                    Pachet pac = new Pachet(
+                        elemente.Count,
+                        nod["Nume"]!.InnerText,
+                        nod["CodIntern"]!.InnerText,
+                        nod["Categorie"]!.InnerText);
 
                     foreach (XmlNode elem in nod["Elemente"]!.ChildNodes) // Fiecare copil al nodului <Elemente>
-                    {
+                    {                                                     // al parintelui <Pachet>
                         if (elem.Name == "Produs")
                         {
                             Produs prod = new Produs(
@@ -44,8 +48,7 @@ namespace App1
                                 elem["Categorie"]!.InnerText,
                                 elem["Producator"]!.InnerText);
 
-                            if (!(elem_pachet.Contains(prod)))
-                                elem_pachet.Add(prod);
+                            pac.Adauga(prod);
                         }
                         else if (elem.Name == "Serviciu")
                         {
@@ -56,16 +59,9 @@ namespace App1
                                 int.Parse(elem["Pret"]!.InnerText),
                                 elem["Categorie"]!.InnerText);
 
-                            if (!(elem_pachet.Contains(serv)))
-                                elem_pachet.Add(serv);
+                            pac.Adauga(serv);
                         }
-                    } //cica fac de 2 ori lista
-                    Pachet pac = new Pachet(
-                        elemente.Count,
-                        nod["Nume"]!.InnerText,
-                        nod["CodIntern"]!.InnerText,
-                        nod["Categorie"]!.InnerText,
-                        elem_pachet);
+                    }
 
                     if (!(elemente.Contains(pac)))
                         elemente.Add(pac);
@@ -76,7 +72,6 @@ namespace App1
         public override void ReadElement()
         {
             string? numeTmp, codInternTmp, categorieTmp;
-            List<IPackageable> li = new List<IPackageable>();
 
             Console.WriteLine("Introdu pachetul, impreuna cu produsul si serviciile:");
 
@@ -89,8 +84,14 @@ namespace App1
             Console.Write("Categoria pachetului:");
             categorieTmp = Console.ReadLine();
 
-            Console.Write($"Cate produse va avea pachetul (Maxim {Pachet.MaxP}): ");
+            Pachet pac = new Pachet(
+                elemente.Count,
+                numeTmp,
+                codInternTmp,
+                categorieTmp);
 
+            // ADAUGAM PRODUSE
+            Console.Write($"Cate produse va avea pachetul (Maxim {Pachet.MaxP}): ");
             uint nrProduse;
             try { nrProduse = uint.Parse(Console.ReadLine() ?? string.Empty); }
             catch { Console.WriteLine("Nu a fost introdus un numar"); nrProduse = 0; }
@@ -100,11 +101,12 @@ namespace App1
                 nrProduse = Pachet.MaxP;
                 Console.WriteLine($"Numarul maxim de produse al unui pachet este {Pachet.MaxP}");
             }
-                
             mgrProduse!.ReadElemente(nrProduse);
+            pac.Adauga(mgrProduse.GetElemente());
 
+
+            // ADAUGAM SERVICII
             Console.Write($"Cate servicii va avea pachetul (Maxim {Pachet.MaxS}): ");
-
             uint nrServicii;
             try { nrServicii = uint.Parse(Console.ReadLine() ?? string.Empty); }
             catch { Console.WriteLine("Nu a fost introdus un numar"); nrServicii = 0; }
@@ -115,18 +117,7 @@ namespace App1
                 Console.WriteLine($"Numarul maxim de servicii al unui pachet este {Pachet.MaxS}");
             } 
             mgrServicii!.ReadElemente(nrServicii);
-
-            foreach (IPackageable p in mgrProduse.GetElemente())
-                li.Add(p);
-            foreach (IPackageable p in mgrServicii.GetElemente())
-                li.Add(p);
-            // cica fac de 2 ori lista
-            Pachet pac = new Pachet(
-                elemente.Count,
-                numeTmp,
-                codInternTmp,
-                categorieTmp,
-                li);
+            pac.Adauga(mgrServicii.GetElemente());
 
             if (!(elemente.Contains(pac)))
                 elemente.Add(pac);

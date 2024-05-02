@@ -43,6 +43,11 @@ namespace App1
 
                 switch (command)
                 {
+                    case "TEST":
+                        {
+                            Console.WriteLine("test");
+                        }
+                        break;
                     case "READ":
                         {
                             if (arguments.Length == 0)
@@ -54,11 +59,13 @@ namespace App1
                                     Console.WriteLine("Initializare cu succes.");
                                 }
      
+                                else if (arguments[0].All(char.IsDigit))
+                                {
+                                    mgrPachete.ReadElemente(uint.Parse(arguments[0]));
+                                    Console.WriteLine("Citire cu succes.");
+                                }
                                 else
-                                    if (arguments[0].All(char.IsDigit))
-                                        mgrPachete.ReadElemente(uint.Parse(arguments[0]));
-                                    else
-                                        Console.WriteLine("Argumente invalide.");
+                                    Console.WriteLine("Argumente invalide.");
                         }
                         break;
                     case "SHOW":
@@ -113,17 +120,23 @@ namespace App1
                         }
                         break;
 
-
+                    case "HELP":
+                        {
+                            Console.WriteLine("COMMAND [] -> Esential, () -> Optional");
+                            Console.WriteLine("TEST -> DEV test");
+                            Console.WriteLine("READ (XML / NR) -> Citeste pachet/e");
+                            Console.WriteLine("SHOW -> Afiseaza toate pachetele");
+                            Console.WriteLine("SORT -> Sorteaza pachetele dupa pret");
+                            Console.WriteLine("FILTER [PRICE / CATEGORY] [VALUE] -> Filtreaza printre pachete");
+                            Console.WriteLine("QUIT -> Inchide aplicatia");
+                        }
+                        break;
                     case "QUIT": break;
                     default:
                         Console.WriteLine("Comanda invalida");
                         break;
                 }
             } while (command != "QUIT");
-
-
-
-
         }
     }
 }

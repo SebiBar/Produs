@@ -28,17 +28,30 @@ namespace entitati
             currentServicii = 0;
             if (elem_pachet != null)
                 foreach (ProdusAbstract elem in elem_pachet)
-                    if (elem.canAddToPackage(this))
-                        Adauga(elem);
+                    this.Adauga(elem);
+        }
+        public Pachet(int id, string? nume, string? codIntern, string? categorie)
+             : base(id, nume, codIntern, 0, categorie)
+        {
+            currentProduse = 0;
+            currentServicii = 0;
         }
 
         public void Adauga(ProdusAbstract elem)
         {
-            if (elem.isA() == "Serviciu") CurrentServicii++;
-            else if (elem.isA() == "Produs") CurrentProduse++;
+            if (elem.canAddToPackage(this))
+            {
+                if (elem.isA() == "Serviciu") CurrentServicii++;
+                else if (elem.isA() == "Produs") CurrentProduse++;
 
-            elem_pachet!.Add(elem);
-            Pret += elem.Pret;
+                elem_pachet!.Add(elem);
+                Pret += elem.Pret;
+            }
+        }
+        public void Adauga(IEnumerable<ProdusAbstract> lista)
+        {
+            foreach(ProdusAbstract elem in lista)
+                this.Adauga(elem);
         }
 
         public override string isA() => "Pachet";
