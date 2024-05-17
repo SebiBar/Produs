@@ -50,8 +50,7 @@ namespace App1
 
             Console.Write("Pretul (RON):");
             try { pretTmp = Convert.ToInt32(Console.ReadLine()); }
-            catch { pretTmp = 0; }
-
+            catch { Console.WriteLine("Nu a fost introdus un numar"); pretTmp = 0; }
 
             Console.Write("Categoria:");
             categorieTmp = Console.ReadLine();

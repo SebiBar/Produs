@@ -14,6 +14,7 @@ namespace entitati
            Producator = producator;
         }
 
+        [XmlElement("Producator")]
         public string? Producator { get => producator; set => producator = value; }
 
         public override string isA() => "Produs";
@@ -42,7 +43,7 @@ namespace entitati
         public override void save2XML(string fileName)
         {
             XmlSerializer xs = new XmlSerializer(typeof(Produs));
-            StreamWriter sw = new StreamWriter(fileName + "TEST");
+            StreamWriter sw = new StreamWriter(fileName);
             xs.Serialize(sw, this);
             sw.Close();
         }
@@ -50,7 +51,7 @@ namespace entitati
         public override Produs? loadFromXML(string fileName)
         {
             XmlSerializer xs = new XmlSerializer(typeof(Produs));
-            FileStream fs = new FileStream(fileName + "TEST", FileMode.Open);
+            FileStream fs = new FileStream(fileName, FileMode.Open);
             XmlReader reader = new XmlTextReader(fs);
             Produs? produs = (Produs?)xs.Deserialize(reader);
             fs.Close();

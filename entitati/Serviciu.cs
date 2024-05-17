@@ -8,7 +8,6 @@ using System.Xml.Serialization;
 
 namespace entitati
 {
-    [XmlRoot ("ServiciuParticularizat")]
     public class Serviciu : ProdusAbstract
     {
         public Serviciu() { }

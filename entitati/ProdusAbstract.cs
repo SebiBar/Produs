@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace entitati
 {
-    [XmlRoot("ElemParticularizat")]
+    [XmlInclude(typeof(Pachet))]
     public abstract class ProdusAbstract : IPackageable
     {
 
@@ -30,13 +30,13 @@ namespace entitati
 
         [XmlElement("ID")]
         public int Id { get => id; set => id = value; }
-        [XmlElement("Numele")]
+        [XmlElement("Nume")]
         public string? Nume { get => nume; set => nume = value; }
-        [XmlElement("CodulIntern")]
+        [XmlElement("CodIntern")]
         public string? CodIntern { get => codIntern; set => codIntern = value; }
-        [XmlElement("Pretul")]
+        [XmlElement("Pret")]
         public int? Pret { get => pret; set => pret = value; }
-        [XmlElement("Categoria")]
+        [XmlElement("Categorie")]
         public string? Categorie { get => categorie; set => categorie = value; }
 
         public override string ToString()
@@ -65,7 +65,7 @@ namespace entitati
             return false;
         }
 
-        public virtual void save2XML(string fileName) { throw new NotImplementedException { }; }
-        public virtual ProdusAbstract? loadFromXML(string fileName) {  return null; }
+        public virtual void save2XML(string filePath) { throw new NotImplementedException { }; }
+        public virtual ProdusAbstract? loadFromXML(string filePath) {  return null; }
     }
 }

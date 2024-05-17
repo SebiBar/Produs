@@ -13,7 +13,7 @@ namespace App1
     {
         protected List<ProdusAbstract> elemente = new List<ProdusAbstract>();
 
-        public abstract void InitializareElementeXML(string filePath);
+        public virtual void InitializareElementeXML(string filePath) { throw new NotImplementedException(); }
 
         public abstract void ReadElement();
 
@@ -27,6 +27,33 @@ namespace App1
         {
             foreach (ProdusAbstract element in elemente)
                 Console.WriteLine(element.ToString() + " ");
+        }
+
+        public virtual void save2XML(string filePath)
+        {
+            Type[] prodAbstractTypes =
+                {typeof(Pachet), typeof(Produs), typeof(Serviciu)};
+
+            XmlSerializer xs = new XmlSerializer(typeof(List<ProdusAbstract>), prodAbstractTypes);
+            StreamWriter sw = new StreamWriter(filePath);
+            xs.Serialize(sw, elemente);
+            sw.Close();
+        }
+        public virtual void loadFromXML(string filePath)
+        {
+            Type[] prodAbstractTypes =
+                {typeof(Pachet), typeof(Produs), typeof(Serviciu)};
+
+            XmlSerializer xs = new XmlSerializer(typeof(List<ProdusAbstract>), prodAbstractTypes);
+            FileStream fs = new FileStream(filePath, FileMode.Open);
+            XmlReader reader = new XmlTextReader(fs);
+            List<ProdusAbstract> liProduse = (List<ProdusAbstract>)xs.Deserialize(reader)!;
+
+            fs.Close();
+
+            if (liProduse != null)
+                foreach (ProdusAbstract elem in liProduse)
+                    elemente.Add(elem);
         }
 
         public IEnumerable<ProdusAbstract> GetElemente()

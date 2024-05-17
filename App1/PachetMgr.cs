@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace App1
 {
@@ -95,7 +96,7 @@ namespace App1
             uint nrProduse;
             try { nrProduse = uint.Parse(Console.ReadLine() ?? string.Empty); }
             catch { Console.WriteLine("Nu a fost introdus un numar"); nrProduse = 0; }
-            
+
             if (nrProduse > Pachet.MaxP)
             {
                 nrProduse = Pachet.MaxP;
@@ -112,10 +113,10 @@ namespace App1
             catch { Console.WriteLine("Nu a fost introdus un numar"); nrServicii = 0; }
 
             if (nrServicii > Pachet.MaxS)
-            { 
+            {
                 nrServicii = Pachet.MaxS;
                 Console.WriteLine($"Numarul maxim de servicii al unui pachet este {Pachet.MaxS}");
-            } 
+            }
             mgrServicii!.ReadElemente(nrServicii);
             pac.Adauga(mgrServicii.GetElemente());
 
@@ -131,5 +132,6 @@ namespace App1
             Console.WriteLine("Lista pachete: ");
             base.Write2Console();
         }
+
     }
 }

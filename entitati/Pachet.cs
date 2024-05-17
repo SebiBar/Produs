@@ -10,19 +10,28 @@ namespace entitati
 {
     public class Pachet : ProdusAbstract, IComparable
     {
-        List<IPackageable>? elem_pachet = new List<IPackageable>();
-
         public static uint MaxP = 1;
         public static uint MaxS = 5;
 
         private uint currentProduse;
         private uint currentServicii;
 
+        [XmlIgnore]
         public uint CurrentProduse { get => currentProduse; set => currentProduse = value; }
+        [XmlIgnore]
         public uint CurrentServicii { get => currentServicii; set => currentServicii = value; }
 
+
+        [XmlArray("Elemente"), XmlArrayItem(typeof(ProdusAbstract), ElementName = "Element")]
+        public List<ProdusAbstract> Elem_pachet { get; set; } = new List<ProdusAbstract>();
+
+        public Pachet() 
+        {
+            CurrentProduse = 0;
+            CurrentServicii = 0;
+        }
         public Pachet(int id, string? nume, string? codIntern, string? categorie,
-            List<IPackageable>? elem_pachet) : base(id, nume, codIntern, 0, categorie)
+            List<ProdusAbstract>? elem_pachet) : base(id, nume, codIntern, 0, categorie)
         {
             currentProduse = 0;
             currentServicii = 0;
@@ -37,14 +46,15 @@ namespace entitati
             currentServicii = 0;
         }
 
-        public void Adauga(ProdusAbstract elem)
+        public void Adauga(IPackageable element)
         {
-            if (elem.canAddToPackage(this))
+            if (element.canAddToPackage(this))
             {
+                ProdusAbstract elem = (ProdusAbstract)element;
                 if (elem.isA() == "Serviciu") CurrentServicii++;
                 else if (elem.isA() == "Produs") CurrentProduse++;
 
-                elem_pachet!.Add(elem);
+                Elem_pachet!.Add(elem);
                 Pret += elem.Pret;
             }
         }
@@ -61,8 +71,8 @@ namespace entitati
             Pachet? pac = obj as Pachet;
 
             // Compara elementele pachetului
-            foreach (ProdusAbstract elemThis in this.elem_pachet!)
-                foreach (ProdusAbstract elemPac in pac!.elem_pachet!)
+            foreach (ProdusAbstract elemThis in this.Elem_pachet!)
+                foreach (ProdusAbstract elemPac in pac!.Elem_pachet!)
                     if (elemThis.Equals(elemPac))
                         return false;
 
@@ -77,12 +87,12 @@ namespace entitati
         // Returneaza elementele pachetului ca un singur string
         public string ElemPachetToString()
         {
-            if (elem_pachet == null)
+            if (Elem_pachet == null)
                 return String.Empty;
             else
             {
                 StringBuilder sb = new StringBuilder();
-                foreach (ProdusAbstract el in this.elem_pachet)
+                foreach (ProdusAbstract el in this.Elem_pachet)
                     sb.Append('\t' + el.ToString() + '\n');
                 return sb.ToString();
             }

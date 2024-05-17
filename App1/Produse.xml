@@ -1,103 +1,120 @@
-<?xml version="1.0" encoding="utf-8" ?>
-
-<Produse>
-  <Pachet>
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProdusAbstract1 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProdusAbstract xsi:type="Pachet">
+    <ID>0</ID>
     <Nume>Calculator Personalizat + Mentenanta</Nume>
     <CodIntern>123233</CodIntern>
+    <Pret>4085</Pret>
     <Categorie>Clienti</Categorie>
     <Elemente>
-      <Produs>
+      <Element xsi:type="Produs">
+        <ID>0</ID>
         <Nume>Calculator Personalizat</Nume>
         <CodIntern>110345</CodIntern>
-        <Producator>SUA</Producator>
         <Pret>4000</Pret>
         <Categorie>Tehnologia Informatiei</Categorie>
-      </Produs>
-      <Serviciu>
+        <Producator>SUA</Producator>
+      </Element>
+      <Element xsi:type="Serviciu">
+        <ID>0</ID>
         <Nume>Transport Premium</Nume>
         <CodIntern>987899</CodIntern>
         <Pret>35</Pret>
         <Categorie>Clienti</Categorie>
-      </Serviciu>
-      <Serviciu>
+      </Element>
+      <Element xsi:type="Serviciu">
+        <ID>0</ID>
         <Nume>Mentenanta</Nume>
         <CodIntern>987111</CodIntern>
         <Pret>50</Pret>
         <Categorie>Tehnologia Informatiei</Categorie>
-      </Serviciu>
+      </Element>
     </Elemente>
-  </Pachet>
-  <Pachet>
+  </ProdusAbstract>
+  <ProdusAbstract xsi:type="Pachet">
+    <ID>1</ID>
     <Nume>Telefon 5G + Mentenanta</Nume>
     <CodIntern>123245</CodIntern>
+    <Pret>2685</Pret>
     <Categorie>Clienti</Categorie>
     <Elemente>
-      <Produs>
+      <Element xsi:type="Produs">
+        <ID>1</ID>
         <Nume>Telefon 5G</Nume>
         <CodIntern>110356</CodIntern>
-        <Producator>Germania</Producator>
         <Pret>2600</Pret>
         <Categorie>Tehnologia Informatiei</Categorie>
-      </Produs>
-      <Serviciu>
+        <Producator>Germania</Producator>
+      </Element>
+      <Element xsi:type="Serviciu">
+        <ID>1</ID>
         <Nume>Transport Premium</Nume>
         <CodIntern>987899</CodIntern>
         <Pret>35</Pret>
         <Categorie>Clienti</Categorie>
-      </Serviciu>
-      <Serviciu>
+      </Element>
+      <Element xsi:type="Serviciu">
+        <ID>1</ID>
         <Nume>Mentenanta</Nume>
         <CodIntern>987111</CodIntern>
         <Pret>50</Pret>
         <Categorie>Tehnologia Informatiei</Categorie>
-      </Serviciu>
+      </Element>
     </Elemente>
-  </Pachet>
-  <Pachet>
+  </ProdusAbstract>
+  <ProdusAbstract xsi:type="Pachet">
+    <ID>2</ID>
     <Nume>Subscriptie lunara + Pini</Nume>
     <CodIntern>103230</CodIntern>
+    <Pret>55</Pret>
     <Categorie>Clienti</Categorie>
     <Elemente>
-      <Produs>
+      <Element xsi:type="Produs">
+        <ID>2</ID>
         <Nume>5 Pini unici</Nume>
         <CodIntern>330245</CodIntern>
-        <Producator>Suedia</Producator>
         <Pret>5</Pret>
         <Categorie>Clienti</Categorie>
-      </Produs>
-      <Serviciu>
+        <Producator>Suedia</Producator>
+      </Element>
+      <Element xsi:type="Serviciu">
+        <ID>2</ID>
         <Nume>Transport</Nume>
         <CodIntern>987889</CodIntern>
         <Pret>20</Pret>
         <Categorie>Clienti</Categorie>
-      </Serviciu>
-      <Serviciu>
+      </Element>
+      <Element xsi:type="Serviciu">
+        <ID>2</ID>
         <Nume>Subscriptie lunara</Nume>
         <CodIntern>257111</CodIntern>
         <Pret>30</Pret>
         <Categorie>Clienti</Categorie>
-      </Serviciu>
+      </Element>
     </Elemente>
-  </Pachet>
-  <Pachet>
+  </ProdusAbstract>
+  <ProdusAbstract xsi:type="Pachet">
+    <ID>3</ID>
     <Nume>Asigurare sanatate</Nume>
     <CodIntern>523232</CodIntern>
+    <Pret>10</Pret>
     <Categorie>Angajati</Categorie>
     <Elemente>
-      <Produs>
+      <Element xsi:type="Produs">
+        <ID>3</ID>
         <Nume>Cadou consultare</Nume>
         <CodIntern>500345</CodIntern>
-        <Producator>Intern</Producator>
         <Pret>0</Pret>
         <Categorie>Altele</Categorie>
-      </Produs>
-      <Serviciu>
+        <Producator>Intern</Producator>
+      </Element>
+      <Element xsi:type="Serviciu">
+        <ID>3</ID>
         <Nume>Consultare medicala</Nume>
         <CodIntern>587811</CodIntern>
         <Pret>10</Pret>
         <Categorie>Angajati</Categorie>
-      </Serviciu>
+      </Element>
     </Elemente>
-  </Pachet>
-</Produse>
-
+  </ProdusAbstract>
+</ArrayOfProdusAbstract1>

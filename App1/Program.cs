@@ -14,7 +14,9 @@ namespace App1
         //main
         static void Main(string[] args)
         {
-            string filePath = "C:\\Users\\Alex\\Desktop\\Produs\\App1\\Produse.xml";
+            string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string sFile = System.IO.Path.Combine(sCurrentDirectory, @"..\..\..\Produse.xml");
+            string filePath = Path.GetFullPath(sFile);
 
             PachetMgr mgrPachete = new PachetMgr();
 
@@ -45,7 +47,9 @@ namespace App1
                 {
                     case "TEST":
                         {
-                            Console.WriteLine("test");
+                            mgrPachete.loadFromXML(filePath!);
+                            mgrPachete.Write2Console();
+                            mgrPachete.save2XML(filePath!);
                         }
                         break;
                     case "READ":
@@ -55,7 +59,7 @@ namespace App1
                             else if (arguments.Length == 1)
                                 if (arguments[0] == "XML")
                                 {
-                                    mgrPachete.InitializareElementeXML(filePath);
+                                    mgrPachete.loadFromXML(filePath!);
                                     Console.WriteLine("Initializare cu succes.");
                                 }
      
@@ -119,7 +123,18 @@ namespace App1
                             }
                         }
                         break;
-
+                    case "SAVE":
+                        {
+                            mgrPachete.save2XML(filePath!);
+                        }
+                        break;
+                    case "CHANGEFILE":
+                        {
+                            string? tmp = Console.ReadLine();
+                            if (tmp != null)
+                                filePath = tmp;
+                        }
+                        break;
                     case "HELP":
                         {
                             Console.WriteLine("COMMAND [] -> Esential, () -> Optional");
@@ -127,6 +142,8 @@ namespace App1
                             Console.WriteLine("READ (XML / NR) -> Citeste pachet/e");
                             Console.WriteLine("SHOW -> Afiseaza toate pachetele");
                             Console.WriteLine("SORT -> Sorteaza pachetele dupa pret");
+                            Console.WriteLine("SAVE -> salveaza pachetele curente");
+                            Console.WriteLine("CHANGEFILE -> Alege fisierul XML folosit pentru salvare");
                             Console.WriteLine("FILTER [PRICE / CATEGORY] [VALUE] -> Filtreaza printre pachete");
                             Console.WriteLine("QUIT -> Inchide aplicatia");
                         }

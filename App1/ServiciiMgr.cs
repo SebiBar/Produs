@@ -47,7 +47,9 @@ namespace App1
             codInternTmp = Console.ReadLine();
 
             Console.Write("Pretul (RON):");
-            pretTmp = Convert.ToInt32(Console.ReadLine());
+            try { pretTmp = Convert.ToInt32(Console.ReadLine()); }
+            catch { Console.WriteLine("Nu a fost introdus un numar"); pretTmp = 0; }
+            
 
             Console.Write("Categoria:");
             categorieTmp = Console.ReadLine();
@@ -55,10 +57,7 @@ namespace App1
             Serviciu serv = new Serviciu(elemente.Count, numeTmp, codInternTmp, pretTmp, categorieTmp);
 
             if (!(elemente.Contains(serv)))
-            {
-                serv.save2XML("C:\\Users\\Alex\\Desktop\\Produs\\App1\\Produs.xml");
                 elemente.Add(serv);
-            }
                 
         }
 
