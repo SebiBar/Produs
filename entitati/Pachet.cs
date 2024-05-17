@@ -58,7 +58,7 @@ namespace entitati
                 Pret += elem.Pret;
             }
         }
-        public void Adauga(IEnumerable<ProdusAbstract> lista)
+        public void Adauga(IEnumerable<IPackageable> lista)
         {
             foreach(ProdusAbstract elem in lista)
                 this.Adauga(elem);
